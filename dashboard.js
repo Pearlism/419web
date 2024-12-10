@@ -1,5 +1,5 @@
 const CLIENT_ID = "1315525383801536582"; // Replace with your actual client ID
-const REDIRECT_URI = "http://localhost:8000/dashboard.html";
+const REDIRECT_URI = "https://pearlism.github.io/419web/dashboard.html";
 const AUTH_URL = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=identify`;
 
 // Extract access token from URL
