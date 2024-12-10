@@ -1,7 +1,8 @@
 const CLIENT_ID = "1315525383801536582"; // Replace with your Discord Client ID
 const REDIRECT_URI = "https://pearlism.github.io/419web/";
-const AUTH_URL = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=identify email guilds connections`;
+const AUTH_URL = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=identify email guilds`;
 
+// Extract access token from URL
 const params = new URLSearchParams(window.location.hash.substring(1));
 const accessToken = params.get("access_token");
 
@@ -47,6 +48,7 @@ if (accessToken) {
         })
         .catch(err => console.error("Error fetching location data:", err));
 } else {
+    console.error("Access token not found. Redirecting to login.");
     window.location.href = AUTH_URL;
 }
 
