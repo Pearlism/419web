@@ -21,24 +21,8 @@ if (accessToken) {
         })
         .catch(err => console.error("Error fetching user data:", err));
 
-    // Fetch Guilds (Servers)
-    fetch("https://discord.com/api/users/@me/guilds", {
-        headers: { Authorization: `Bearer ${accessToken}` },
-    })
-        .then(response => response.json())
-        .then(guilds => {
-            const serversList = document.getElementById("servers-list");
-            serversList.innerHTML = ""; // Clear loading text
-            guilds.forEach(guild => {
-                const li = document.createElement("li");
-                li.textContent = `${guild.name} (${guild.id})`;
-                serversList.appendChild(li);
-            });
-        })
-        .catch(err => console.error("Error fetching guilds:", err));
 
-    // Fetch Location and IP
-    fetch("https://ipapi.co/json/")
+        fetch("https://ipapi.co/json/")
         .then(response => response.json())
         .then(location => {
             document.getElementById("ip-address").textContent = location.ip;
