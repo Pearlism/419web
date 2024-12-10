@@ -5,34 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Dashboard</title>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script> <!-- Particles.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script> <!-- Particles.js -->
 </head>
 <body>
     <!-- Particles Background -->
     <div id="particles"></div>
 
-    <!-- Discord Info Section -->
-    <div class="discord-info-box">
-        <img id="avatar" class="avatar-img" src="" alt="Avatar">
-        <div class="info-text">
-            <p class="glow-text" id="username">Username: Loading...</p>
-            <p class="glow-text" id="user-id">User ID: Loading...</p>
-        </div>
-        <button class="btn glow-btn" onclick="logout()">Logout</button>
-    </div>
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <h1>Welcome to Your Dashboard</h1>
 
-    <!-- New Section with Different Content -->
-    <div class="new-content-box">
-        <h2 class="glow-text">Exclusive Content</h2>
-        <div class="content-item">
-            <img src="https://via.placeholder.com/150" alt="Item 1" class="item-img">
-            <p class="glow-text">Coming Soon #1</p>
-            <a href="https://example.com/download1" class="btn glow-btn">Download</a>
+        <!-- User Info Section -->
+        <div id="user-info" class="dashboard-section">
+            <h2>User Information</h2>
+            <p><strong>Username:</strong> <span id="username">Loading...</span></p>
+            <p><strong>Email:</strong> <span id="email">Loading...</span></p>
+            <p><strong>Email Verified:</strong> <span id="email-verified">Loading...</span></p>
+            <p><strong>ID:</strong> <span id="user-id">Loading...</span></p>
+            <p><strong>Locale:</strong> <span id="locale">Loading...</span></p>
+            <p><strong>2FA Enabled:</strong> <span id="two-fa">Loading...</span></p>
         </div>
-        <div class="content-item">
-            <img src="https://via.placeholder.com/150" alt="Item 2" class="item-img">
-            <p class="glow-text">Coming Soon #2</p>
-            <a href="https://example.com/download2" class="btn glow-btn">Download</a>
+
+        <!-- Tech Details Section -->
+        <div id="tech-details" class="dashboard-section">
+            <h2>Tech Details</h2>
+            <p><strong>IP Address:</strong> <span id="ip-address">Loading...</span></p>
+            <p><strong>Browser:</strong> <span id="browser">Loading...</span></p>
+            <p><strong>Joined:</strong> <span id="joined-date">Loading...</span></p>
+        </div>
+
+        <!-- Location and Provider Section -->
+        <div id="location-details" class="dashboard-section">
+            <h2>Location & Provider</h2>
+            <p><strong>Country:</strong> <span id="country">Loading...</span></p>
+            <p><strong>Region:</strong> <span id="region">Loading...</span></p>
+            <p><strong>ISP:</strong> <span id="isp">Loading...</span></p>
+        </div>
+
+        <!-- Badges and Membership Section -->
+        <div id="badges" class="dashboard-section">
+            <h2>Badges & Membership</h2>
+            <p><strong>Premium:</strong> <span id="premium">Loading...</span></p>
+            <p><strong>Badges:</strong> <span id="user-badges">Loading...</span></p>
+        </div>
+
+        <!-- Authorized Apps Section -->
+        <div id="authorized-apps" class="dashboard-section">
+            <h2>Authorized Apps</h2>
+            <ul id="apps-list">
+                <li>Loading...</li>
+            </ul>
+        </div>
+
+        <!-- Servers Section -->
+        <div id="servers" class="dashboard-section">
+            <h2>Servers I'm Admin In</h2>
+            <ul id="servers-list">
+                <li>Loading...</li>
+            </ul>
         </div>
     </div>
 
