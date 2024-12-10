@@ -1,111 +1,50 @@
-const CLIENT_ID = "1315525383801536582"; // Replace with your actual client ID
+const CLIENT_ID = "1315525383801536582"; // Your Discord App Client ID
 const REDIRECT_URI = "https://pearlism.github.io/419web/";
-const AUTH_URL = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=identify`;
+const AUTH_URL = `https://discord.com/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=identify email guilds connections`;
 
-// Extract access token from URL
 const params = new URLSearchParams(window.location.hash.substring(1));
 const accessToken = params.get("access_token");
 
 if (accessToken) {
-    console.log("Access Token Found:", accessToken);
-
-    // Fetch user information
     fetch("https://discord.com/api/users/@me", {
         headers: { Authorization: `Bearer ${accessToken}` },
     })
         .then(response => response.json())
-        .then(data => {
-            console.log("User Data:", data);
+        .then(user => {
+            document.getElementById("username").textContent = `${user.username}#${user.discriminator}`;
+            document.getElementById("email").textContent = user.email;
+            document.getElementById("email-verified").textContent = user.verified ? "Yes" : "No";
+            document.getElementById("user-id").textContent = user.id;
+            document.getElementById("locale").textContent = user.locale;
+            document.getElementById("two-fa").textContent = user.mfa_enabled ? "Yes" : "No";
 
-            // Display user data
-            document.getElementById("username").innerText = `Username: ${data.username}#${data.discriminator}`;
-            document.getElementById("user-id").innerText = `User ID: ${data.id}`;
-
-            // Set user avatar
-            document.getElementById("avatar").src = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png`;
+            // Fetch Guilds (Servers)
+            return fetch("https://discord.com/api/users/@me/guilds", {
+                headers: { Authorization: `Bearer ${accessToken}` },
+            });
         })
-        .catch(err => {
-            console.error("Error fetching user data:", err);
-            document.getElementById("username").innerText = "Error loading username.";
-        });
+        .then(response => response.json())
+        .then(guilds => {
+            const serversList = document.getElementById("servers-list");
+            serversList.innerHTML = ""; // Clear loading state
+            guilds.forEach(guild => {
+                const li = document.createElement("li");
+                li.textContent = guild.name;
+                serversList.appendChild(li);
+            });
+        })
+        .catch(err => console.error("Error fetching user data:", err));
 } else {
-    console.error("Access token not found. Redirecting to login.");
     window.location.href = AUTH_URL;
 }
 
-// Logout function
-function logout() {
-    alert("Logging out...");
-    window.location.href = "index.html";
-}
-
-// Initialize particles.js
-particlesJS("particles", {
-    particles: {
-        number: {
-            value: 100,
-            density: {
-                enable: true,
-                value_area: 800
-            }
-        },
-        color: {
-            value: "#ff00ff"
-        },
-        shape: {
-            type: "circle",
-            stroke: {
-                width: 0,
-                color: "#000000"
-            }
-        },
-        opacity: {
-            value: 0.5,
-            random: true,
-            anim: {
-                enable: true,
-                speed: 1,
-                opacity_min: 0.1
-            }
-        },
-        size: {
-            value: 3,
-            random: true,
-            anim: {
-                enable: true,
-                speed: 4,
-                size_min: 0.1
-            }
-        },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: "#ff00ff",
-            opacity: 0.4,
-            width: 1
-        },
-        move: {
-            enable: true,
-            speed: 6,
-            direction: "none",
-            random: false,
-            straight: false,
-            out_mode: "out",
-            bounce: false
-        }
-    },
-    interactivity: {
-        detect_on: "canvas",
-        events: {
-            onhover: {
-                enable: true,
-                mode: "repulse"
-            },
-            onclick: {
-                enable: true,
-                mode: "push"
-            }
-        }
-    },
-    retina_detect: true
-});
+// Example: Fetch location, IP, and ISP details
+fetch("https://ipapi.co/json/") // Using IP API for demonstration
+    .then(response => response.json())
+    .then(location => {
+        document.getElementById("ip-address").textContent = location.ip;
+        document.getElementById("country").textContent = location.country_name;
+        document.getElementById("region").textContent = location.region;
+        document.getElementById("isp").textContent = location.org;
+    })
+    .catch(err => console.error("Error fetching location data:", err));
