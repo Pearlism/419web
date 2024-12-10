@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script> <!-- Particles.js CDN -->
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles"></div>
+
+    <!-- Discord Info Section -->
+    <div class="discord-info-box">
+        <img id="avatar" class="avatar-img" src="" alt="Avatar">
+        <div class="info-text">
+            <p class="glow-text" id="username">Username: Loading...</p>
+            <p class="glow-text" id="user-id">User ID: Loading...</p>
+        </div>
+        <button class="btn glow-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <!-- New Section with Different Content -->
+    <div class="new-content-box">
+        <h2 class="glow-text">Exclusive Content</h2>
+        <div class="content-item">
+            <img src="https://via.placeholder.com/150" alt="Item 1" class="item-img">
+            <p class="glow-text">Cool Asset #1</p>
+            <a href="https://example.com/download1" class="btn glow-btn">Download</a>
+        </div>
+        <div class="content-item">
+            <img src="https://via.placeholder.com/150" alt="Item 2" class="item-img">
+            <p class="glow-text">Cool Asset #2</p>
+            <a href="https://example.com/download2" class="btn glow-btn">Download</a>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
