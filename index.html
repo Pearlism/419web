@@ -5,65 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Dashboard</title>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script> <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
-    <!-- Particles Background -->
     <div id="particles"></div>
 
-    <!-- Dashboard Container -->
+    <!-- Dashboard -->
     <div class="dashboard-container">
         <h1>Welcome to Your Dashboard</h1>
 
-        <!-- User Info Section -->
-        <div id="user-info" class="dashboard-section">
-            <h2>User Information</h2>
+        <!-- User Info -->
+        <div id="user-info">
+            <img id="avatar" class="avatar-img" src="" alt="Avatar">
             <p><strong>Username:</strong> <span id="username">Loading...</span></p>
             <p><strong>Email:</strong> <span id="email">Loading...</span></p>
             <p><strong>Email Verified:</strong> <span id="email-verified">Loading...</span></p>
             <p><strong>ID:</strong> <span id="user-id">Loading...</span></p>
-            <p><strong>Locale:</strong> <span id="locale">Loading...</span></p>
-            <p><strong>2FA Enabled:</strong> <span id="two-fa">Loading...</span></p>
         </div>
 
-        <!-- Tech Details Section -->
-        <div id="tech-details" class="dashboard-section">
-            <h2>Tech Details</h2>
+        <!-- Guild Info -->
+        <div id="guilds">
+            <h2>Servers I'm Admin In:</h2>
+            <ul id="servers-list">
+                <li>Loading...</li>
+            </ul>
+        </div>
+
+        <!-- Location Info -->
+        <div id="location">
+            <h2>Location Details:</h2>
             <p><strong>IP Address:</strong> <span id="ip-address">Loading...</span></p>
-            <p><strong>Browser:</strong> <span id="browser">Loading...</span></p>
-            <p><strong>Joined:</strong> <span id="joined-date">Loading...</span></p>
-        </div>
-
-        <!-- Location and Provider Section -->
-        <div id="location-details" class="dashboard-section">
-            <h2>Location & Provider</h2>
             <p><strong>Country:</strong> <span id="country">Loading...</span></p>
             <p><strong>Region:</strong> <span id="region">Loading...</span></p>
             <p><strong>ISP:</strong> <span id="isp">Loading...</span></p>
         </div>
 
-        <!-- Badges and Membership Section -->
-        <div id="badges" class="dashboard-section">
-            <h2>Badges & Membership</h2>
-            <p><strong>Premium:</strong> <span id="premium">Loading...</span></p>
-            <p><strong>Badges:</strong> <span id="user-badges">Loading...</span></p>
-        </div>
-
-        <!-- Authorized Apps Section -->
-        <div id="authorized-apps" class="dashboard-section">
-            <h2>Authorized Apps</h2>
-            <ul id="apps-list">
-                <li>Loading...</li>
-            </ul>
-        </div>
-
-        <!-- Servers Section -->
-        <div id="servers" class="dashboard-section">
-            <h2>Servers I'm Admin In</h2>
-            <ul id="servers-list">
-                <li>Loading...</li>
-            </ul>
-        </div>
+        <button onclick="logout()">Logout</button>
     </div>
 
     <script src="dashboard.js"></script>
