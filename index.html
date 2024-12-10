@@ -5,42 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Dashboard</title>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script> <!-- Particles.js CDN -->
 </head>
 <body>
+    <!-- Particles Background -->
     <div id="particles"></div>
 
-    <!-- Dashboard -->
-    <div class="dashboard-container">
-        <h1>Welcome to Your Dashboard</h1>
-
-        <!-- User Info -->
-        <div id="user-info">
-            <img id="avatar" class="avatar-img" src="" alt="Avatar">
-            <p><strong>Username:</strong> <span id="username">Loading...</span></p>
-            <p><strong>Email:</strong> <span id="email">Loading...</span></p>
-            <p><strong>Email Verified:</strong> <span id="email-verified">Loading...</span></p>
-            <p><strong>ID:</strong> <span id="user-id">Loading...</span></p>
-        </div>
-
-        <!-- Guild Info -->
-        <div id="guilds">
-            <h2>Servers I'm Admin In:</h2>
-            <ul id="servers-list">
-                <li>Loading...</li>
-            </ul>
-        </div>
-
-        <!-- Location Info -->
-        <div id="location">
-            <h2>Location Details:</h2>
-            <p><strong>IP Address:</strong> <span id="ip-address">Loading...</span></p>
-            <p><strong>Country:</strong> <span id="country">Loading...</span></p>
-            <p><strong>Region:</strong> <span id="region">Loading...</span></p>
-            <p><strong>ISP:</strong> <span id="isp">Loading...</span></p>
-        </div>
-
-        <button onclick="logout()">Logout</button>
+    <!-- Discord Info Section -->
+    <div class="discord-info-box">
+        <img id="avatar" class="avatar-img" src="" alt="Avatar">
+        <p class="info-text" id="username">Username: Loading...</p>
+        <p class="info-text" id="email">Email: Loading...</p>
+        <p class="info-text" id="email-verified">Email Verified: Loading...</p>
+        <p class="info-text" id="user-id">ID: Loading...</p>
+        <p class="info-text" id="ip-address">IP Address: Loading...</p>
+        <p class="info-text" id="country">Country: Loading...</p>
+        <p class="info-text" id="region">Region: Loading...</p>
+        <p class="info-text" id="isp">ISP: Loading...</p>
+        <button class="btn" onclick="logout()">Logout</button>
     </div>
 
     <script src="dashboard.js"></script>
